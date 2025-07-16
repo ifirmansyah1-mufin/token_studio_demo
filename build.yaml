@@ -1,0 +1,16 @@
+targets:
+  $default:
+    builders:
+      token_studio_demo|style_token_builder:
+        generate_for:
+          - lib/styles/tokens.json
+
+builders:
+  style_token_builder:
+    import: "tool/builder.dart"
+    builder_factories: ["styleTokenBuilder"]
+    build_extensions:
+      .json:
+        - .style.g.dart
+    auto_apply: root_package
+    build_to: source
